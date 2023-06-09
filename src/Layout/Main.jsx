@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../pages/Shared/Footer/Footer";
 import { useState } from "react";
+import NavBar from "../pages/Shared/NavBar/NavBar";
 
 
 const Main = () => {
@@ -11,9 +12,9 @@ const Main = () => {
         else setDark(true);
     }
     return (
-        <div data-theme={dark ? 'light' : 'black'}>
+        <div data-theme={dark ? 'dark' : 'light'}>
+            <NavBar darkmode={darkmode} dark={dark}></NavBar>
             <Outlet></Outlet>
-            <button onClick={darkmode} className="btn btn-secondary">toggle</button>
             <Footer></Footer>
         </div>
     );
