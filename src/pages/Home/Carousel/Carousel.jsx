@@ -9,10 +9,12 @@ import img4 from '../../../assets/carousel/greenbook.jpg';
 import img5 from '../../../assets/carousel/johnwick.jpg';
 import img6 from '../../../assets/carousel/tenet.jpg';
 import img7 from '../../../assets/carousel/spiderman.jpg';
+import SectionTitle from "../../../components/SectionTitle.jsx/SectionTitle";
 
 const Carousel = () => {
     const settings = {
         dots: true,
+        lazyLoad: true,
         infinite: true,
         className: "center",
         centerMode: true,
@@ -22,11 +24,14 @@ const Carousel = () => {
         swipeToSlide: true,
         autoplay: true,
         speed: 2000,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 2000,
         cssEase: "linear"
     };
     return (
         <div className="mt-24">
+            <div>
+                <SectionTitle heading={'RECENT FILMS'} />
+            </div>
             <Slider arrows={false} {...settings}>
                 <div>
                     <h3><img src={img1} alt="" /></h3>
