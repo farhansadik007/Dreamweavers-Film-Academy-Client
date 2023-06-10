@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { FaSun } from 'react-icons/fa';
+import { FaHome, FaSun } from 'react-icons/fa';
+import { FiLogIn } from 'react-icons/fi';
 import { MdNightlight } from 'react-icons/md';
 
 const NavBar = ({ darkmode, dark }) => {
     const navOptions = <>
-        <li><Link className="text-xl" to='/'>Home</Link></li>
+        <li><Link className="text-xl" to='/'><FaHome/>Home</Link></li>
         <li><Link className="text-xl" to='/instructors'>Instructors</Link></li>
         <li><Link className="text-xl" to='/classes'>Classes</Link></li>
+        <li><Link className="text-xl" to='/login'><FiLogIn/>Login</Link></li>
 
     </>
     return (
