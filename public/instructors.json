@@ -1,123 +1,122 @@
 [
-    {
-      "id": 1,
-      "name": "Steven Spielberg",
-      "students": 75,
-      "photo": "https://i.ibb.co/wyskJ7T/gettyimages-972831516.jpg",
+  {
+    "id": 1,
+    "name": "Steven Spielberg",
+    "students": 75,
+    "photo": "https://i.ibb.co/wyskJ7T/gettyimages-972831516.jpg",
+    "films": [
+      "Jurassic Park",
+      "E.T. the Extra-Terrestrial",
+      "Schindler's List",
+      "Jaws"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Martin Scorsese",
+    "students": 130,
+    "photo": "https://i.ibb.co/Hzhpp4z/martin-Scorsese-png-preset-square.jpg",
+    "films": [
+      "Goodfellas",
+      "Taxi Driver",
+      "The Departed",
+      "Raging Bull"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Christopher Nolan",
+    "students": 190,
+    "photo": "https://i.ibb.co/s1N1xRh/e101d421b91bdd880e04edd8f9d36a343b-christopher-nolan-rsquare-w330.webp",
+    "films": [
+      "Inception",
+      "The Dark Knight",
+      "Interstellar",
+      "Memento"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Quentin Tarantino",
+    "students": 25,
+    "photo": "https://i.ibb.co/v4L3xpD/fa9f5d1536bc41b0a62ab952f72df65910-02-quentin-tarantino-rsquare-w600.webp",
+    "films": [
+      "Pulp Fiction",
+      "Kill Bill",
+      "Django Unchained",
+      "Reservoir Dogs"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Sofia Coppola",
+    "students": 120,
+    "photo": "https://i.ibb.co/KWFrKKh/e7c9d8b9de5110eae7f348f36a14d12dec-sofia-coppola-1x-rsquare-w1400.webp",
+    "films": [
+      "Lost in Translation",
+      "The Virgin Suicides",
+      "Marie Antoinette",
+      "Somewhere"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Alfonso Cuarón",
+    "students": 15,
+    "photo": "https://i.ibb.co/FhRQWmQ/VYVGZFUDJ5-EBRDXC2-TJ6-LKKFWA.jpg",
+    "films": [
+      "Gravity",
+      "Children of Men",
+      "Y Tu Mamá También",
+      "Roma"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Greta Gerwig",
+    "students": 10,
+    "photo": "https://i.ibb.co/jWNTN45/greta-gerwig-pregnant-second-child-303924-1669148172538-square-700x0c.jpg",
+    "films": [
+      "Lady Bird",
+      "Little Women",
+      "Frances Ha",
+      "Mistress America"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Wes Anderson",
+    "students": 135,
+    "photo": "https://i.ibb.co/kBWPvbz/Dzc8-TKp-XR0nl2n-Avmo-ZBj-Shp-ANSY3t-large.jpg",
+    "films": [
+      "The Grand Budapest Hotel",
+      "Moonrise Kingdom",
+      "The Royal Tenenbaums",
+      "Rushmore"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Ava DuVernay",
+    "students": 18,
+    "photo": "https://i.ibb.co/c8V1p9G/fdeda212e78cbbaa99b2520abc4d1774e3-ava-duverney-rsquare-w700.webp",
+    "films": [
+      "Selma",
+      "13th",
+      "A Wrinkle in Time",
+      "When They See Us"
+    ]
+  },
+  {
+      "id": 10,
+      "name": "James Cameron",
+      "students": 122,
+      "photo": "https://i.ibb.co/51TVkXM/james-cameron-1670598730.jpg",
       "films": [
-        "Jurassic Park",
-        "E.T. the Extra-Terrestrial",
-        "Schindler's List",
-        "Jaws"
+        "Titanic",
+        "Avatar",
+        "The Terminator",
+        "Alita: Battle Angel"
       ]
-    },
-    {
-      "id": 2,
-      "name": "Martin Scorsese",
-      "students": 130,
-      "photo": "https://i.ibb.co/Hzhpp4z/martin-Scorsese-png-preset-square.jpg",
-      "films": [
-        "Goodfellas",
-        "Taxi Driver",
-        "The Departed",
-        "Raging Bull"
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Christopher Nolan",
-      "students": 190,
-      "photo": "https://i.ibb.co/s1N1xRh/e101d421b91bdd880e04edd8f9d36a343b-christopher-nolan-rsquare-w330.webp",
-      "films": [
-        "Inception",
-        "The Dark Knight",
-        "Interstellar",
-        "Memento"
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Quentin Tarantino",
-      "students": 25,
-      "photo": "https://i.ibb.co/v4L3xpD/fa9f5d1536bc41b0a62ab952f72df65910-02-quentin-tarantino-rsquare-w600.webp",
-      "films": [
-        "Pulp Fiction",
-        "Kill Bill",
-        "Django Unchained",
-        "Reservoir Dogs"
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Sofia Coppola",
-      "students": 120,
-      "photo": "https://i.ibb.co/KWFrKKh/e7c9d8b9de5110eae7f348f36a14d12dec-sofia-coppola-1x-rsquare-w1400.webp",
-      "films": [
-        "Lost in Translation",
-        "The Virgin Suicides",
-        "Marie Antoinette",
-        "Somewhere"
-      ]
-    },
-    {
-      "id": 6,
-      "name": "Alfonso Cuarón",
-      "students": 15,
-      "photo": "https://i.ibb.co/FhRQWmQ/VYVGZFUDJ5-EBRDXC2-TJ6-LKKFWA.jpg",
-      "films": [
-        "Gravity",
-        "Children of Men",
-        "Y Tu Mamá También",
-        "Roma"
-      ]
-    },
-    {
-      "id": 7,
-      "name": "Greta Gerwig",
-      "students": 10,
-      "photo": "https://i.ibb.co/jWNTN45/greta-gerwig-pregnant-second-child-303924-1669148172538-square-700x0c.jpg",
-      "films": [
-        "Lady Bird",
-        "Little Women",
-        "Frances Ha",
-        "Mistress America"
-      ]
-    },
-    {
-      "id": 8,
-      "name": "Wes Anderson",
-      "students": 135,
-      "photo": "https://i.ibb.co/kBWPvbz/Dzc8-TKp-XR0nl2n-Avmo-ZBj-Shp-ANSY3t-large.jpg",
-      "films": [
-        "The Grand Budapest Hotel",
-        "Moonrise Kingdom",
-        "The Royal Tenenbaums",
-        "Rushmore"
-      ]
-    },
-    {
-      "id": 9,
-      "name": "Ava DuVernay",
-      "students": 18,
-      "photo": "https://i.ibb.co/c8V1p9G/fdeda212e78cbbaa99b2520abc4d1774e3-ava-duverney-rsquare-w700.webp",
-      "films": [
-        "Selma",
-        "13th",
-        "A Wrinkle in Time",
-        "When They See Us"
-      ]
-    },
-    {
-        "id": 10,
-        "name": "James Cameron",
-        "students": 122,
-        "photo": "https://i.ibb.co/51TVkXM/james-cameron-1670598730.jpg",
-        "films": [
-          "Titanic",
-          "Avatar",
-          "The Terminator",
-          "Alita: Battle Angel"
-        ]
-    }
-  ]
-  
+  }
+]

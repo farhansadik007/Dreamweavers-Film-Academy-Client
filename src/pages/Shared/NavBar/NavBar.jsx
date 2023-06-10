@@ -5,7 +5,7 @@ import { MdNightlight } from 'react-icons/md';
 const NavBar = ({ darkmode, dark }) => {
     const navOptions = <>
         <li><Link className="text-xl" to='/'>Home</Link></li>
-        <li><Link className="text-xl" to='/'>Instructors</Link></li>
+        <li><Link className="text-xl" to='/instructors'>Instructors</Link></li>
         <li><Link className="text-xl" to='/'>Classes</Link></li>
 
     </>
