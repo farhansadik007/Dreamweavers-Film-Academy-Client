@@ -22,8 +22,8 @@ const NavBar = ({ darkmode, dark }) => {
                         </ul>
                     </div>
                     <div className="flex items-center">
-                    <img width={100} src="dreamweaver.png" />
-                    <p className="text-2xl font-bold"><span className="text-green-400">DreamWeavers</span> <br/> Film Academy</p>
+                    <img className="w-6/12 lg:w-2/12" src="dreamweaver.png" />
+                    <p className="text-lg lg:text-2xl font-bold"><span className="text-green-400">DreamWeavers</span> <br/> Film Academy</p>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
