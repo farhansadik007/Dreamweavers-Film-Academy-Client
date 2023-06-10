@@ -1,6 +1,7 @@
 import Carousel from "../Carousel/Carousel";
 import { Helmet } from 'react-helmet-async';
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
+import PopularClasses from "../PopularClasses/PopularClasses";
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
             </div>
             <Carousel></Carousel>
             <PopularInstructors></PopularInstructors>
+            <PopularClasses></PopularClasses>
         </div>
     );
 };

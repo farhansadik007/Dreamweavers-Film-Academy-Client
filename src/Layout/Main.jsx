@@ -5,7 +5,7 @@ import NavBar from "../pages/Shared/NavBar/NavBar";
 
 
 const Main = () => {
-    const [dark, setDark] = useState(false);
+    const [dark, setDark] = useState(true);
 
     const darkmode = () => {
         if (dark) setDark(false);

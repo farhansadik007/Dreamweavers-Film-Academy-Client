@@ -11,7 +11,7 @@ const Instructors = () => {
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-items-center gap-4">
                 {
                     instructors.map(instructor => <InstructorCard
-                        key={instructor.id}
+                        key={instructor._id}
                         instructor={instructor}
                     ></InstructorCard>)
                 }

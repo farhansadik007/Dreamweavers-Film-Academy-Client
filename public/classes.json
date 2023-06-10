@@ -1,73 +1,83 @@
 [
     {
-      "id": 1,
       "image": "https://i.ibb.co/jzMgdYy/P1070189-scaled.jpg",
       "class_name": "Introduction to Filmmaking",
       "info": "Learn the basics of filmmaking, including storytelling, camera techniques, and editing. Perfect for beginners!",
-      "students": 125
+      "students": 125,
+      "instructor": "Steven Spielberg",
+      "price" : 299
     },
     {
-      "id": 2,
       "image": "https://i.ibb.co/p1jWfD7/DSC00516.jpg",
       "class_name": "Screenwriting Masterclass",
       "info": "Unlock your creativity and develop your skills in screenwriting. Explore character development, plot structure, and dialogue.",
-      "students": 18
+      "students": 118,
+      "instructor": "Christopher Nolan",
+      "price" : 259
     },
     {
-      "id": 3,
       "image": "https://i.ibb.co/CB97N1c/dunkirk.webp",
       "class_name": "Cinematography Workshop",
       "info": "Delve into the art of cinematography and learn about lighting, camera movement, shot composition, and visual storytelling.",
-      "students": 12
+      "students": 112,
+      "instructor": "Quentin Tarantino",
+      "price" : 199
     },
     {
-      "id": 4,
       "image": "https://i.ibb.co/6wV8ny3/maxresdefault.jpg",
       "class_name": "Editing Techniques",
       "info": "Master the art of editing and post-production. Explore different editing software and techniques to enhance your storytelling.",
-      "students": 15
+      "students": 115,
+      "instructor": "Sofia Coppola",
+      "price" : 399
     },
     {
-      "id": 5,
       "image": "https://i.ibb.co/cbZ8vh0/maxresdefault.jpg",
       "class_name": "Documentary Filmmaking",
       "info": "Learn the process of creating compelling documentaries, from research and interviews to editing and distribution.",
-      "students": 20
+      "students": 220,
+      "instructor": "Alfonso Cuarón",
+      "price" : 359
     },
     {
-      "id": 6,
       "image": "https://i.ibb.co/p0gqFcr/tom-hardy-christian-bale-the-dark-knight-rises11.webp",
       "class_name": "Acting for the Screen",
       "info": "Discover the nuances of acting specifically for film. Develop your on-screen presence and learn about script analysis.",
-      "students": 10
+      "students": 210,
+      "instructor": "Greta Gerwig",
+      "price" : 259
     },
     {
-      "id": 7,
       "image": "https://i.ibb.co/Tq92Tn1/AAAAQXybn-Vt-Mdqpj26b-URLI8-UH9pf4-QIgu-Vfw2j-CJ-VP-1-X86-SX61qy-HCieaga-Bto-CP3q-PLy-Zy-Qx5cy0-Vdx2.jpg",
       "class_name": "Film Directing Essentials",
       "info": "Unleash your creativity as a film director. Learn about shot composition, working with actors, and visual storytelling.",
-      "students": 15
+      "students": 215,
+      "instructor": "Wes Anderson",
+      "price" : 299
     },
     {
-      "id": 8,
       "image": "https://i.ibb.co/F53cfzz/FAXQWRw-WUAIR2-SK.jpg",
       "class_name": "Production Design Fundamentals",
       "info": "Explore the world of production design and learn how to create visually stunning sets that enhance storytelling.",
-      "students": 10
+      "students": 310,
+      "instructor": "Ava DuVernay",
+      "price" : 199
     },
     {
-      "id": 9,
       "image": "https://i.ibb.co/12BbtH9/best-apps-to-remove-audio-from-video-on-iphonecropped.jpg",
       "class_name": "Sound Design Workshop",
       "info": "Dive into the world of sound design and learn how to create impactful audio experiences for film and video projects.",
-      "students": 12
+      "students": 115,
+      "instructor": "Martin Scorsese",
+      "price" : 299
     },
     {
-      "id": 10,
       "image": "https://i.ibb.co/Hh101GS/universal-warner-bros.webp",
       "class_name": "Film Marketing and Distribution",
       "info": "Discover strategies for marketing and distributing your films effectively. Learn about film festivals, promotion, and online distribution.",
-      "students": 8
+      "students": 228,
+      "instructor": "James Cameron",
+      "price" : 399
     }
   ]
   

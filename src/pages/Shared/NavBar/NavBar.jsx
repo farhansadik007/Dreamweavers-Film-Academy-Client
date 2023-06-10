@@ -6,7 +6,7 @@ const NavBar = ({ darkmode, dark }) => {
     const navOptions = <>
         <li><Link className="text-xl" to='/'>Home</Link></li>
         <li><Link className="text-xl" to='/instructors'>Instructors</Link></li>
-        <li><Link className="text-xl" to='/'>Classes</Link></li>
+        <li><Link className="text-xl" to='/classes'>Classes</Link></li>
 
     </>
     return (
