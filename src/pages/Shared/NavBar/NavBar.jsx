@@ -2,14 +2,29 @@ import { Link } from "react-router-dom";
 import { FaHome, FaSun } from 'react-icons/fa';
 import { FiLogIn } from 'react-icons/fi';
 import { MdNightlight } from 'react-icons/md';
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = ({ darkmode, dark }) => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
+
     const navOptions = <>
-        <li><Link className="text-xl" to='/'><FaHome/>Home</Link></li>
+        <li><Link className="text-xl" to='/'><FaHome />Home</Link></li>
         <li><Link className="text-xl" to='/instructors'>Instructors</Link></li>
         <li><Link className="text-xl" to='/classes'>Classes</Link></li>
-        <li><Link className="text-xl" to='/login'><FiLogIn/>Login</Link></li>
-
+        {
+            user ? <>
+                <li className="btn btn-outline btn-error" onClick={handleLogOut} >Log Out</li>
+            </> : <>
+                <li><Link className="text-xl" to='/login'><FiLogIn />Login</Link></li>
+            </>
+        }
     </>
     return (
         <>
@@ -24,8 +39,8 @@ const NavBar = ({ darkmode, dark }) => {
                         </ul>
                     </div>
                     <div className="flex items-center">
-                    <img className="w-6/12 lg:w-2/12" src="dreamweaver.png" />
-                    <p className="text-lg lg:text-2xl font-bold"><span className="text-green-400">DreamWeavers</span> <br/> Film Academy</p>
+                        <img className="w-6/12 lg:w-2/12" src="dreamweaver.png" />
+                        <p className="text-lg lg:text-2xl font-bold"><span className="text-green-400">DreamWeavers</span> <br /> Film Academy</p>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">

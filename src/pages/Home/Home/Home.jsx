@@ -28,11 +28,11 @@ const Home = () => {
 
                 <h2 className="text-5xl lg:text-9xl flex my-36"><span className="text-red-500">!!!</span>Facts<span className="text-red-500">!!!</span></h2>
 
-                <p className="w-9/12 lg:w-6/12 lg:text-2xl">
+                <div className="w-9/12 lg:w-6/12 lg:text-2xl">
                     <p className="lg:my-20">The first cinemas were opened in the early <span className="text-red-500">1900s</span>. Before then, films were shown in public halls, theatres or at funfairs!</p>
                     <p className="my-20">The most successful film of all time is thought to be ‘Gone with the Wind.’ Made in 1939, the film has made an estimated <span className="text-red-500">£2.5 billion</span>!</p>
                     <p className="my-20"> The most expensive film ever made is thought to be ‘Pirates of the Caribbean: On Stranger Tides.’ It cost around <span className="text-red-500">£268 million</span>!</p>
-                </p>
+                </div>
             </div>
         </div>
     );

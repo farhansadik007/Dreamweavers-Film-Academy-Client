@@ -7,7 +7,7 @@ import NavBar from "../pages/Shared/NavBar/NavBar";
 const Main = () => {
     const [dark, setDark] = useState(true);
     const location = useLocation();
-    const onlyBody = location.pathname.includes('login');
+    const onlyBody = location.pathname.includes('login') || location.pathname.includes('register');
 
     const darkmode = () => {
         if (dark) setDark(false);
