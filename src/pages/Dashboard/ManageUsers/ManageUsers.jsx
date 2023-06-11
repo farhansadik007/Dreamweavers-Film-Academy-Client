@@ -49,8 +49,9 @@ const ManageUsers = () => {
         })
     }
 
+    //TODO
     const handleDelete = user => {
-
+        console.log(user);
     }
 
     return (

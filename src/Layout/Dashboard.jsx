@@ -3,11 +3,13 @@ import { Link, Outlet } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { AuthContext } from "../providers/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
-    // const isAdmin = true;
-    const isInstructor = false;
+
+    const [isInstructor] = useInstructor();
+    console.log(isInstructor);
     const [isAdmin] = useAdmin();
 
     return (
@@ -23,7 +25,7 @@ const Dashboard = () => {
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
 
                     <div className="avatar mx-auto">
-                        <div className=" w-full rounded-full"><img src={user?.photoURL} /></div>
+                        <div className="mx-auto w-2/4 rounded-full"><img src={user?.photoURL} /></div>
                     </div>
                     <span className="mx-auto text-2xl my-8">{user?.displayName}</span>
                     {

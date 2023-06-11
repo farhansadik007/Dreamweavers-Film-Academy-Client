@@ -3,7 +3,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 
-const PrivateRoute = ({ children }) => {
+const AdminRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const [isAdmin, isAdminLoading] = useAdmin();
     const location = useLocation();
@@ -15,4 +15,4 @@ const PrivateRoute = ({ children }) => {
     return <Navigate to='/login' state={{from: location}} replace/>
 };
 
-export default PrivateRoute;
+export default AdminRoute;
