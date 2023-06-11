@@ -2,24 +2,30 @@ import { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Register = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { createUser } = useContext(AuthContext);
+    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    const onSubmit = (data, e) => {
+    const onSubmit = data => {
         createUser(data.email, data.password)
             .then(() => {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Register Successful!',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                e.target.reset();
+                updateUserProfile(data.name, data.photo)
+                    .then(() => {
+                        reset();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Register Successful!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate('/');
+                    })
+                    .catch(error => console.log(error));
             })
     }
 

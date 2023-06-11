@@ -1,16 +1,20 @@
 import { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const onSubmit = (data, e) => {
+    const from = location.state?.from?.pathname || '/';
+
+    const onSubmit = data => {
         signIn(data.email, data.password)
             .then(() => {
                 Swal.fire({
@@ -18,8 +22,9 @@ const Login = () => {
                     title: 'Login Successful!',
                     showConfirmButton: false,
                     timer: 1500
-                })
-                e.target.reset();
+                });
+                reset();
+                navigate(from, {replace: true});
             })
     }
     return (

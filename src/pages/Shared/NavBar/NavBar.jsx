@@ -20,7 +20,13 @@ const NavBar = ({ darkmode, dark }) => {
         <li><Link className="text-xl" to='/classes'>Classes</Link></li>
         {
             user ? <>
-                <li className="btn btn-outline btn-error" onClick={handleLogOut} >Log Out</li>
+                <div className="btn mx-2">
+                    <span className="">{user?.displayName}</span>
+                    <div className="avatar">
+                        <div className=" w-10 rounded-full"><img src={user?.photoURL} /></div>
+                    </div>
+                </div>
+                <li className="btn btn-outline btn-error mt-4 lg:mt-0" onClick={handleLogOut} >Log Out</li>
             </> : <>
                 <li><Link className="text-xl" to='/login'><FiLogIn />Login</Link></li>
             </>
