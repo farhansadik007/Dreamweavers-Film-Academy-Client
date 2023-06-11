@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
-import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
@@ -16,18 +16,33 @@ const Register = () => {
             .then(() => {
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
-                        reset();
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Register Successful!',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        navigate('/');
+
+                        const saveUser = { name: data.name, email: data.email };
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Register Successful!',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
                     })
                     .catch(error => console.log(error));
             })
     }
+
 
     return (
         <>
@@ -97,10 +112,7 @@ const Register = () => {
                                     type="password" name="confirm_password" placeholder="confirm password" className="input input-bordered" />
                                 {errors.confirm_password && <span className='text-red-500'>Password do not match!</span>}
                             </div>
-                            <div className='flex flex-col items-center'>
-                                <p className='my-2'>OR</p>
-                                <button className="btn btn-circle"><FcGoogle size={30} /></button>
-                            </div>
+                            <SocialLogin></SocialLogin>
                             <div className="form-control mt-3">
                                 <input className="btn btn-warning" type="submit" value="Register" />
                             </div>

@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -24,9 +24,10 @@ const Login = () => {
                     timer: 1500
                 });
                 reset();
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
             })
     }
+
     return (
         <>
             <Helmet>
@@ -54,11 +55,7 @@ const Login = () => {
                                 </label>
                                 <input type="password" {...register("password", { required: true })} name="password" placeholder="password" className="input input-bordered" />
                             </div>
-                            <div className='flex flex-col items-center my-4'>
-                                <p className='my-4'>OR</p>
-                                <button className="btn btn-circle"><FcGoogle size={30} /></button>
-                                <p className='mt-2'>Sign In with Google</p>
-                            </div>
+                            <SocialLogin></SocialLogin>
                             <div className="form-control mt-6">
                                 <input className="btn btn-accent" type="submit" value="Login" />
                             </div>
