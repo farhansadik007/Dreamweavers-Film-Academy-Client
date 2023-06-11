@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import { FaHome, FaSun } from 'react-icons/fa';
 import { FiLogIn } from 'react-icons/fi';
+import { GoSignOut } from 'react-icons/go';
 import { MdNightlight } from 'react-icons/md';
+import { IoMdCart } from 'react-icons/io';
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useCart from "../../../hooks/useCart";
 
 const NavBar = ({ darkmode, dark }) => {
     const { user, logOut } = useContext(AuthContext);
+    const [cart] = useCart();
 
     const handleLogOut = () => {
         logOut()
@@ -26,7 +30,11 @@ const NavBar = ({ darkmode, dark }) => {
                         <div className=" w-10 rounded-full"><img src={user?.photoURL} /></div>
                     </div>
                 </div>
-                <li className="btn btn-outline btn-error mt-4 lg:mt-0" onClick={handleLogOut} >Log Out</li>
+                <li><Link to='/dashboard/mycart'>
+                        <IoMdCart size={33}/>
+                        <span className="badge badge-accent">+{cart?.length || 0}</span>
+                </Link></li>
+                <li><Link onClick={handleLogOut} className="text-xl"><GoSignOut />LogOut</Link></li>
             </> : <>
                 <li><Link className="text-xl" to='/login'><FiLogIn />Login</Link></li>
             </>

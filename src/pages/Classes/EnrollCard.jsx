@@ -1,9 +1,53 @@
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
+import useCart from "../../hooks/useCart";
 
 const EnrollCard = ({ cls }) => {
     const { _id, image, class_name, info, students, instructor, price } = cls;
+    const { user } = useContext(AuthContext);
+    const [, refetch] = useCart();
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const enroll = id => {
-        console.log(id);
+    const handleEnroll = () => {
+        if (user && user.email) {
+            const cartItem = {classId: _id, class_name, image, instructor, price, email: user.email}
+            fetch('http://localhost:5000/carts', {
+                method: 'POST',
+                headers: {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(cartItem)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        refetch();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Added to Cart',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                title: 'You have to Login first',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#00CEC9',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', {state: {from: location}});
+                }
+            })
+        }
     }
 
     return (
@@ -15,9 +59,9 @@ const EnrollCard = ({ cls }) => {
                 <p>{info}</p>
                 <p><span className="badge badge-warning">Enrolled</span> : {students}</p>
                 <p><span className="badge badge-warning">Price</span> : {price}</p>
-                <p><span className="badge badge-warning">Available Seats</span> : {}</p>
+                <p><span className="badge badge-warning">Available Seats</span> : { }</p>
                 <div className="card-actions mt-4">
-                    <button onClick={() => enroll(_id)} className="btn btn-accent btn-outline btn-block">Enroll</button>
+                    <button onClick={handleEnroll} className="btn btn-accent btn-outline btn-block">Enroll</button>
                 </div>
             </div>
         </div>
