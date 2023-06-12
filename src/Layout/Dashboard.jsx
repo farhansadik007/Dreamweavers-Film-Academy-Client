@@ -9,7 +9,6 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext);
 
     const [isInstructor] = useInstructor();
-    console.log(isInstructor);
     const [isAdmin] = useAdmin();
 
     return (
@@ -30,13 +29,13 @@ const Dashboard = () => {
                     <span className="mx-auto text-2xl my-8">{user?.displayName}</span>
                     {
                         isAdmin ? <>
-                            <li><Link to='/dashboard/manageclasses'>Manage Classes</Link></li>
+                            <li><Link to='/dashboard/manageClasses'>Manage Classes</Link></li>
                             <li><Link to='/dashboard/manageusers'>Manage Users</Link></li>
                             <li><Link to='/dashboard/payment'>Payment History</Link></li>
                         </>
                             : isInstructor ?
                                 <>
-                                    <li><Link to='/dashboard/addaclasses'>Add A Class</Link></li>
+                                    <li><Link to='/dashboard/addClass'>Add A Class</Link></li>
                                     <li><Link to='/dashboard/myclasses'>My Classes</Link></li>
                                 </> : <>
                                     <li><Link to='/dashboard/mycart'>My Cart</Link></li>

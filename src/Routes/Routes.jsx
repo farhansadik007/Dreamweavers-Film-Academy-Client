@@ -12,6 +12,9 @@ import Dashboard from '../Layout/Dashboard'
 import MyCart from '../pages/Dashboard/MyCart/MyCart'
 import PrivateRoute from './PrivateRoute'
 import ManageUsers from '../pages/Dashboard/ManageUsers/ManageUsers'
+import AddClass from '../pages/AddClass/AddClass'
+import InstructorRoute from './InstructorRoute'
+import AdminRoute from './AdminRoute'
 
 export const router = createBrowserRouter([
     {
@@ -50,8 +53,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'manageusers',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             },
+            {
+                path: 'addClass',
+                element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
+            }
         ]
     },
     {

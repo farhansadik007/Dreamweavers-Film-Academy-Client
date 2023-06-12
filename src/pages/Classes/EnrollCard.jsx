@@ -3,11 +3,15 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
+import useInstructor from "../../hooks/useInstructor";
+import useAdmin from "../../hooks/useAdmin";
 
 const EnrollCard = ({ cls }) => {
     const { _id, image, class_name, info, students, instructor, price } = cls;
     const { user } = useContext(AuthContext);
     const [, refetch] = useCart();
+    const [isInstructor] = useInstructor();
+    const [isAdmin] = useAdmin();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -61,7 +65,7 @@ const EnrollCard = ({ cls }) => {
                 <p><span className="badge badge-warning">Price</span> : {price}</p>
                 <p><span className="badge badge-warning">Available Seats</span> : { }</p>
                 <div className="card-actions mt-4">
-                    <button onClick={handleEnroll} className="btn btn-accent btn-outline btn-block">Enroll</button>
+                    { isAdmin || isInstructor || <button onClick={handleEnroll} className="btn btn-accent btn-outline btn-block">Enroll</button>}
                 </div>
             </div>
         </div>
