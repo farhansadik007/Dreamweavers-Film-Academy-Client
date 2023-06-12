@@ -15,6 +15,8 @@ import ManageUsers from '../pages/Dashboard/ManageUsers/ManageUsers'
 import AddClass from '../pages/AddClass/AddClass'
 import InstructorRoute from './InstructorRoute'
 import AdminRoute from './AdminRoute'
+import ManageClasses from '../pages/ManageClasses/ManageClasses'
+import Payment from '../pages/Dashboard/Payment/Payment'
 
 export const router = createBrowserRouter([
     {
@@ -52,8 +54,16 @@ export const router = createBrowserRouter([
                 element: <MyCart></MyCart>
             },
             {
+                path: 'payment',
+                element: <Payment></Payment>
+            },
+            {
                 path: 'manageusers',
                 element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+            },
+            {
+                path: 'manageClasses',
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             {
                 path: 'addClass',
