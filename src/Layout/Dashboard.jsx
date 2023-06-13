@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaUserGraduate } from "react-icons/fa";
+import {SiGoogleclassroom} from 'react-icons/si';
 import { AuthContext } from "../providers/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import { IoMdCart, IoMdHome } from "react-icons/io";
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
@@ -29,6 +31,7 @@ const Dashboard = () => {
                     <span className="mx-auto text-2xl my-8">{user?.displayName}</span>
                     {
                         isAdmin ? <>
+                            <li><Link to='/dashboard/adminhome'>Admin Home</Link></li>
                             <li><Link to='/dashboard/manageClasses'>Manage Classes</Link></li>
                             <li><Link to='/dashboard/manageusers'>Manage Users</Link></li>
                             <li><Link to='/dashboard/payment'>Payment History</Link></li>
@@ -38,13 +41,13 @@ const Dashboard = () => {
                                     <li><Link to='/dashboard/addClass'>Add A Class</Link></li>
                                     <li><Link to='/dashboard/myclasses'>My Classes</Link></li>
                                 </> : <>
-                                    <li><Link to='/dashboard/mycart'>My Cart</Link></li>
+                                    <li><Link to='/dashboard/mycart'><IoMdCart size={25}/>My Cart</Link></li>
                                 </>
                     }
                     <div className="divider"></div>
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/instructors'>Instructors</Link></li>
-                    <li><Link to='/classes'>Classes</Link></li>
+                    <li><Link to='/'><IoMdHome size={25}/>Home</Link></li>
+                    <li><Link to='/instructors'><FaUserGraduate size={20}/>Instructors</Link></li>
+                    <li><Link to='/classes'><SiGoogleclassroom size={20}/>Classes</Link></li>
                 </ul>
 
             </div>

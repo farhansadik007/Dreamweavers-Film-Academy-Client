@@ -17,6 +17,8 @@ import InstructorRoute from './InstructorRoute'
 import AdminRoute from './AdminRoute'
 import ManageClasses from '../pages/ManageClasses/ManageClasses'
 import Payment from '../pages/Dashboard/Payment/Payment'
+import UserHome from '../pages/Dashboard/UserHome/UserHome'
+import AdminHome from '../pages/Dashboard/AdminHome/AdminHome'
 
 export const router = createBrowserRouter([
     {
@@ -50,12 +52,21 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
+                path: 'userhome',
+                element: <UserHome></UserHome>
+            },
+            {
                 path: 'mycart',
                 element: <MyCart></MyCart>
             },
             {
                 path: 'payment',
                 element: <Payment></Payment>
+            },
+            //admin routes
+            {
+                path: 'adminhome',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             {
                 path: 'manageusers',
@@ -65,6 +76,7 @@ export const router = createBrowserRouter([
                 path: 'manageClasses',
                 element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
+            //instructor routes
             {
                 path: 'addClass',
                 element: <InstructorRoute><AddClass></AddClass></InstructorRoute>

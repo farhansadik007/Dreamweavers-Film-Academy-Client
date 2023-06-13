@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
 import { Link } from "react-router-dom";
+import { FcMoneyTransfer } from "react-icons/fc";
 
 const MyCart = () => {
     const [cart, refetch] = useCart();
@@ -47,17 +48,23 @@ const MyCart = () => {
             </Helmet>
             <>{isAdmin || isInstructor ?
                 <>
-                {isAdmin ? 
-                <div className="flex justify-center"><h3 className="text-5xl">You Are Admin</h3> </div>
-                : <div className="flex justify-center"><h3 className="text-5xl">You Are Instructor</h3> </div>
-                }
+                    {isAdmin ?
+                        <div className="flex justify-center"><h3 className="text-5xl">You Are Admin</h3> </div>
+                        : <div className="flex justify-center"><h3 className="text-5xl">You Are Instructor</h3> </div>
+                    }
                 </>
                 :
                 <>
                     <div className="uppercase font-semibold h-20 flex justify-evenly">
                         <h3 className="text-3xl">Total Courses: {cart.length}</h3>
                         <h3 className="text-3xl">Total Price: ${total}</h3>
-                        <Link to='/dashboard/payment'><button className="btn btn-lg btn-success">PAY</button></Link>
+                        {cart.length !== 0 ? 
+                            <Link to='/dashboard/payment'><button className="btn btn-lg btn-success"><FcMoneyTransfer size={25}/>PAY</button></Link>
+                            :
+                            <Link to="/classes">
+                            <button>Classes</button>
+                            </Link>
+                        }
                     </div>
                     <div className="overflow-x-auto">
                         <table className="table">

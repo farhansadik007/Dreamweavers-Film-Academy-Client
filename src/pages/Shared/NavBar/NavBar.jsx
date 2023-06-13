@@ -7,9 +7,13 @@ import { IoMdCart } from 'react-icons/io';
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const NavBar = ({ darkmode, dark }) => {
     const { user, logOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
     const [cart] = useCart();
 
     const handleLogOut = () => {
@@ -22,18 +26,20 @@ const NavBar = ({ darkmode, dark }) => {
         <li><Link className="text-xl" to='/'><FaHome />Home</Link></li>
         <li><Link className="text-xl" to='/instructors'>Instructors</Link></li>
         <li><Link className="text-xl" to='/classes'>Classes</Link></li>
+        <li><Link className="text-xl" to={isAdmin ? '/dashboard/adminhome' : '/dashboard/userhome'}>Dashboard</Link></li>
         {
             user ? <>
                 <div className="btn mx-2">
-                    <span className="">{user?.displayName}</span>
-                    <div className="avatar">
-                        <div className=" w-10 rounded-full"><img src={user?.photoURL} /></div>
+                    <div className="avatar tooltip tooltip-bottom" data-tip={user?.displayName}>
+                        <div className=" w-10 rounded-full"><img src={user?.photoURL}/></div>
                     </div>
                 </div>
+                { isAdmin ? <></> : isInstructor ? <></> :
                 <li><Link to='/dashboard/mycart'>
-                        <IoMdCart size={33}/>
-                        <span className="badge badge-accent">+{cart?.length || 0}</span>
+                    <IoMdCart size={33} />
+                    <span className="badge badge-accent">+{cart?.length || 0}</span>
                 </Link></li>
+                }
                 <li><Link onClick={handleLogOut} className="text-xl"><GoSignOut />LogOut</Link></li>
             </> : <>
                 <li><Link className="text-xl" to='/login'><FiLogIn />Login</Link></li>

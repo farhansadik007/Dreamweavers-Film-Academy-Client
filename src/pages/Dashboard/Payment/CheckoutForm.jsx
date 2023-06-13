@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { FcMoneyTransfer } from "react-icons/fc";
 
 const CheckoutForm = ({ price, cart }) => {
     const stripe = useStripe();
@@ -85,7 +86,10 @@ const CheckoutForm = ({ price, cart }) => {
         <div className="flex justify-center">
 
             <form className="w-2/3 m-8" onSubmit={handleSubmit}>
-                <CardElement
+                <div className="flex justify-center">
+                    <div className="btn btn-wide btn-warning my-6">Total Price: ${price}</div>
+                </div>
+                <CardElement className="lg:mx-48 my-10"
                     options={{
                         style: {
                             base: {
@@ -103,11 +107,11 @@ const CheckoutForm = ({ price, cart }) => {
                 />
                 <div className="flex justify-center">
                     <button className="btn btn-wide btn-outline btn-accent mt-12" type="submit" disabled={!stripe || !clientSecret || processing}>
-                        Pay
+                        <FcMoneyTransfer size={20}/> Pay
                     </button>
                 </div>
                 {cardError && <p className="text-red-500">{cardError}</p>}
-                {transactionId && <p className="text-green-500 btn mt-24">Transaction Successful! transactionId: ${transactionId}</p>}
+                {transactionId && <p className="text-green-500 btn mt-12">Transaction Successful! transactionId: ${transactionId}</p>}
             </form>
         </div>
     );
