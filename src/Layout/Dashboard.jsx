@@ -9,6 +9,7 @@ import { IoMdCart, IoMdCloudDone, IoMdHome, IoMdSettings } from "react-icons/io"
 import { MdLibraryAdd, MdManageAccounts } from "react-icons/md";
 import { GiTeacher } from "react-icons/gi";
 import { RiSecurePaymentLine } from "react-icons/ri";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
@@ -18,6 +19,9 @@ const Dashboard = () => {
 
     return (
         <div className="drawer lg:drawer-open">
+            <Helmet>
+                <title>DFA | Dashboard</title>
+            </Helmet>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
                 <label htmlFor="my-drawer-2" className="btn btn-accent btn-wide drawer-button lg:hidden my-4"><FaBars /></label>
