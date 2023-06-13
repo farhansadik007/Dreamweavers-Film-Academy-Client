@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FaBars, FaUserGraduate } from "react-icons/fa";
-import {SiGoogleclassroom} from 'react-icons/si';
+import { SiGoogleclassroom } from 'react-icons/si';
 import { AuthContext } from "../providers/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
@@ -17,7 +17,7 @@ const Dashboard = () => {
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
-                <label htmlFor="my-drawer-2" className="btn btn-accent btn-wide drawer-button lg:hidden my-4"><FaBars/></label>
+                <label htmlFor="my-drawer-2" className="btn btn-accent btn-wide drawer-button lg:hidden my-4"><FaBars /></label>
                 <Outlet />
 
             </div>
@@ -38,16 +38,17 @@ const Dashboard = () => {
                         </>
                             : isInstructor ?
                                 <>
+                                    <li><Link to='/dashboard/userhome'>Instructor Home</Link></li>
                                     <li><Link to='/dashboard/addClass'>Add A Class</Link></li>
-                                    <li><Link to='/dashboard/myclasses'>My Classes</Link></li>
+                                    <li><Link to='/dashboard/myClasses'>My Classes</Link></li>
                                 </> : <>
-                                    <li><Link to='/dashboard/mycart'><IoMdCart size={25}/>My Cart</Link></li>
+                                    <li><Link to='/dashboard/mycart'><IoMdCart size={25} />My Cart</Link></li>
                                 </>
                     }
                     <div className="divider"></div>
-                    <li><Link to='/'><IoMdHome size={25}/>Home</Link></li>
-                    <li><Link to='/instructors'><FaUserGraduate size={20}/>Instructors</Link></li>
-                    <li><Link to='/classes'><SiGoogleclassroom size={20}/>Classes</Link></li>
+                    <li><Link to='/'><IoMdHome size={25} />Home</Link></li>
+                    <li><Link to='/instructors'><FaUserGraduate size={20} />Instructors</Link></li>
+                    <li><Link to='/classes'><SiGoogleclassroom size={20} />Classes</Link></li>
                 </ul>
 
             </div>
