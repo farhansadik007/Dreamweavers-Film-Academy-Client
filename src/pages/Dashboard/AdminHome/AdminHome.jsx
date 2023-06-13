@@ -27,13 +27,9 @@ const AdminHome = () => {
 
                 <h2 className="max-sm:text-4xl text-5xl m-6">Welcome Back, {user.displayName}</h2>
             </motion.div>
-
-
-
-            <div className="stats shadow max-sm:flex max-sm:flex-col m-6">
+            <div className=" stats shadow max-sm:flex max-sm:flex-col m-6 gap-4">
                 <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 0.8 }}
                 >
                     <div className="stat">
                         <div className="stat-figure text-secondary">
@@ -44,8 +40,7 @@ const AdminHome = () => {
                     </div>
                 </motion.button>
                 <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 0.8 }}
                 >
                     <div className="stat">
                         <div className="stat-figure text-secondary">
@@ -56,8 +51,7 @@ const AdminHome = () => {
                     </div>
                 </motion.button>
                 <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 0.8 }}
                 >
                     <div className="stat">
                         <div className="stat-figure text-secondary">
@@ -68,8 +62,7 @@ const AdminHome = () => {
                     </div>
                 </motion.button>
                 <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 0.8 }}
                 >
                     <div className="stat">
                         <div className="stat-figure text-secondary">

@@ -15,43 +15,64 @@ const ManageUsers = () => {
         fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: 'PATCH'
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount > 0) {
-                refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `Promoted ${user.name} to Admin`,
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `Promoted ${user.name} to Admin`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     const handleMakeInstructor = user => {
         fetch(`http://localhost:5000/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount > 0) {
-                refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `Promoted ${user.name} to Instructor`,
-                    showConfirmButton: false,
-                    timer: 1500
-                })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `Promoted ${user.name} to Instructor`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+    const handleDelete = user => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/users/${user.email}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'User has been deleted.',
+                                'success'
+                            )
+
+                        }
+                    })
             }
         })
-    }
-
-    //TODO
-    const handleDelete = user => {
-        console.log(user);
     }
 
     return (
@@ -81,11 +102,11 @@ const ManageUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    {user.role === 'admin' ? <span className="badge badge-error">Admin</span> : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-green-600 text-black"><FaUserShield size={20}/></button>}
-                                    {user.role === 'instructor' ? <span className="badge badge-error">Instructor</span> : <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-yellow-500 text-black ml-2"><FaUserGraduate size={20}/></button>}
+                                    {user.role === 'admin' ? <span className="badge badge-error">Admin</span> : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-green-600 text-black"><FaUserShield size={20} /></button>}
+                                    {user.role === 'instructor' ? <span className="badge badge-error">Instructor</span> : <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-yellow-500 text-black ml-2"><FaUserGraduate size={20} /></button>}
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDelete(user)} className="btn btn-ghost btn-xs bg-red-600">delete</button>
+                                    <button onClick={() => handleDelete(user)} className="btn btn-ghost btn-xs bg-red-600" disabled={user.role === 'admin' ? true : false}>delete</button>
                                 </td>
                             </tr>)
                         }

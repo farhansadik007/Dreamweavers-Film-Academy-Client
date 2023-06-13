@@ -20,6 +20,8 @@ import Payment from '../pages/Dashboard/Payment/Payment'
 import UserHome from '../pages/Dashboard/UserHome/UserHome'
 import AdminHome from '../pages/Dashboard/AdminHome/AdminHome'
 import MyClass from '../pages/Dashboard/MyClass/MyClass'
+import PaymentHistory from '../pages/Dashboard/PaymentHistory/PaymentHistory'
+import UserPaymentHistory from '../pages/Dashboard/UserPaymentHistory/UserPaymentHistory'
 
 export const router = createBrowserRouter([
     {
@@ -64,6 +66,10 @@ export const router = createBrowserRouter([
                 path: 'payment',
                 element: <Payment></Payment>
             },
+            {
+                path: 'userpaymenthistory',
+                element: <UserPaymentHistory></UserPaymentHistory>
+            },
             //admin routes
             {
                 path: 'adminhome',
@@ -85,6 +91,10 @@ export const router = createBrowserRouter([
             {
                 path: 'myClasses',
                 element: <InstructorRoute><MyClass></MyClass></InstructorRoute>
+            },
+            {
+                path: 'paymenthistory',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     },

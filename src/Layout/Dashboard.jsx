@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { FaBars, FaUserGraduate } from "react-icons/fa";
-import { SiGoogleclassroom } from 'react-icons/si';
+import { FaBars, FaHistory, FaUserGraduate } from "react-icons/fa";
+import { SiGoogleclassroom, SiPhpmyadmin } from 'react-icons/si';
 import { AuthContext } from "../providers/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
-import { IoMdCart, IoMdHome } from "react-icons/io";
+import { IoMdCart, IoMdCloudDone, IoMdHome, IoMdSettings } from "react-icons/io";
+import { MdLibraryAdd, MdManageAccounts } from "react-icons/md";
+import { GiTeacher } from "react-icons/gi";
+import { RiSecurePaymentLine } from "react-icons/ri";
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
@@ -31,18 +34,19 @@ const Dashboard = () => {
                     <span className="mx-auto text-2xl my-8">{user?.displayName}</span>
                     {
                         isAdmin ? <>
-                            <li><Link to='/dashboard/adminhome'>Admin Home</Link></li>
-                            <li><Link to='/dashboard/manageClasses'>Manage Classes</Link></li>
-                            <li><Link to='/dashboard/manageusers'>Manage Users</Link></li>
-                            <li><Link to='/dashboard/payment'>Payment History</Link></li>
+                            <li><Link to='/dashboard/adminhome'><SiPhpmyadmin size={25}/>Admin Home</Link></li>
+                            <li><Link to='/dashboard/manageClasses'><IoMdSettings size={20}/>Manage Classes</Link></li>
+                            <li><Link to='/dashboard/manageusers'><MdManageAccounts size={25}/>Manage Users</Link></li>
+                            <li><Link to='/dashboard/paymenthistory'><FaHistory size={20}/>Payment History</Link></li>
                         </>
                             : isInstructor ?
                                 <>
-                                    <li><Link to='/dashboard/userhome'>Instructor Home</Link></li>
-                                    <li><Link to='/dashboard/addClass'>Add A Class</Link></li>
-                                    <li><Link to='/dashboard/myClasses'>My Classes</Link></li>
+                                    <li><Link to='/dashboard/userhome'><GiTeacher size={20}/>Instructor Home</Link></li>
+                                    <li><Link to='/dashboard/addClass'><MdLibraryAdd size={20}/>Add A Class</Link></li>
+                                    <li><Link to='/dashboard/myClasses'><IoMdCloudDone size={20}/>My Classes</Link></li>
                                 </> : <>
-                                    <li><Link to='/dashboard/mycart'><IoMdCart size={25} />My Cart</Link></li>
+                                    <li><Link to='/dashboard/mycart'><IoMdCart size={25} />My Selected Class</Link></li>
+                                    <li><Link to='/dashboard/userpaymenthistory'><RiSecurePaymentLine size={25} />My Payment History</Link></li>
                                 </>
                     }
                     <div className="divider"></div>

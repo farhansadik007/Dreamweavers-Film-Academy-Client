@@ -7,7 +7,7 @@ import useInstructor from "../../hooks/useInstructor";
 import useAdmin from "../../hooks/useAdmin";
 
 const EnrollCard = ({ cls }) => {
-    const { _id, image, class_name, info, students, instructor, price } = cls;
+    const { _id, image, class_name, info, students, instructor, price, seats } = cls;
     const { user } = useContext(AuthContext);
     const [, refetch] = useCart();
     const [isInstructor] = useInstructor();
@@ -17,11 +17,11 @@ const EnrollCard = ({ cls }) => {
 
     const handleEnroll = () => {
         if (user && user.email) {
-            const cartItem = {classId: _id, class_name, image, instructor, price, email: user.email}
+            const cartItem = { classId: _id, class_name, image, instructor, price, email: user.email }
             fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
-                    'content-type' : 'application/json'
+                    'content-type': 'application/json'
                 },
                 body: JSON.stringify(cartItem)
             })
@@ -48,12 +48,11 @@ const EnrollCard = ({ cls }) => {
                 confirmButtonText: 'Login'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate('/login', {state: {from: location}});
+                    navigate('/login', { state: { from: location } });
                 }
             })
         }
     }
-
     return (
         <div className="card card-compact w-10/12 bg-base-100 shadow-xl">
             <figure><img src={image} alt="Shoes" /></figure>
@@ -63,9 +62,9 @@ const EnrollCard = ({ cls }) => {
                 <p>{info}</p>
                 <p><span className="badge badge-warning">Enrolled</span> : {students}</p>
                 <p><span className="badge badge-warning">Price</span> : {price}</p>
-                <p><span className="badge badge-warning">Available Seats</span> : { }</p>
+                <p><span className="badge badge-warning">Available Seats</span> : {seats}</p>
                 <div className="card-actions mt-4">
-                    { isAdmin || isInstructor || <button onClick={handleEnroll} className="btn btn-accent btn-outline btn-block">Enroll</button>}
+                    {isAdmin || isInstructor || <button onClick={handleEnroll} className="btn btn-accent btn-outline btn-block">Enroll</button>}
                 </div>
             </div>
         </div>
@@ -73,11 +72,3 @@ const EnrollCard = ({ cls }) => {
 };
 
 export default EnrollCard;
-
-/**
- * ---------
- * TODO
- * ---------
- * 1. available seats
- * 2. integrate enroll button
- */

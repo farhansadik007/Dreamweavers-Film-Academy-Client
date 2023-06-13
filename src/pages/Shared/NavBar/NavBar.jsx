@@ -26,7 +26,9 @@ const NavBar = ({ darkmode, dark }) => {
         <li><Link className="text-xl" to='/'><FaHome />Home</Link></li>
         <li><Link className="text-xl" to='/instructors'>Instructors</Link></li>
         <li><Link className="text-xl" to='/classes'>Classes</Link></li>
-        <li><Link className="text-xl" to={isAdmin ? '/dashboard/adminhome' : '/dashboard/userhome'}>Dashboard</Link></li>
+        { user ? 
+            <li><Link className="text-xl" to={isAdmin ? '/dashboard/adminhome' : '/dashboard/userhome'}>Dashboard</Link></li> : <></>
+        }
         {
             user ? <>
                 <div className="btn mx-2">
