@@ -25,4 +25,5 @@
      > React Slick
      > Sweetalert2
      > Tanstack Query
-Live site link
+
+Live site link : https://dreamweavers-film-academy.web.app

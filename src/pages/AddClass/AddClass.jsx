@@ -31,17 +31,15 @@ const AddClass = () => {
             const {class_name, info, instructor, price, seats, email} = data;
             const newClass = {image: imgURL, class_name, info, students: 0, instructor, price: parseFloat(price), seats: parseFloat(seats), email};
             axiosSecure.post('/classes', newClass)
-            .then((data) => {
-                if(data.insertedId) {
-                    reset();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Class Added Successfully',
-                        showConfirmButton: false,
-                        timer: 1500
-                      })
-                }
+            .then(() => {
+                reset();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Class Added Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             })
         }
       })

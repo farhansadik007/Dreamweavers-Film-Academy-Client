@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import SectionTitle from "../../../components/SectionTitle.jsx/SectionTitle";
 import useClasses from "../../../hooks/useClasses";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const MyClass = () => {
     const [classes] = useClasses();
+    const {user} = useContext(AuthContext);
+    const onlyClass= classes.filter(cls => cls.email === user.email)
     return (
         <div className="w-full m-4">
             <SectionTitle heading='My Classes'></SectionTitle>
@@ -20,7 +24,7 @@ const MyClass = () => {
                     </thead>
                     <tbody>
                         {
-                            classes.map((cls, index) => <tr
+                            onlyClass.map((cls, index) => <tr
                             key={cls._id}
                             >
                                 <td>{index + 1}</td>

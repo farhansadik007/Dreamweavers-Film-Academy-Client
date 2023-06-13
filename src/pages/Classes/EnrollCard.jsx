@@ -18,7 +18,7 @@ const EnrollCard = ({ cls }) => {
     const handleEnroll = () => {
         if (user && user.email) {
             const cartItem = { classId: _id, class_name, image, instructor, price, email: user.email }
-            fetch('http://localhost:5000/carts', {
+            fetch('https://film-school-server.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
